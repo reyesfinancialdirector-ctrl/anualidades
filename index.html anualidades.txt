@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reyes Financial Agency - Anualidades Indexadas & Roth IRA</title>
+    
+    <!-- TailwindCSS Remote -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#004aad',
+                        'brand-cyan': '#5de0e6',
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-brand {
+            background: linear-gradient(135deg, #004aad 0%, #5de0e6 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+  
+  <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Ffinanciall8542back.builtwithrocket.new&_be=https%3A%2F%2Fappanalytics.rocket.new&_v=0.1.14"></script>
+  <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
+  </head>
+<body class="bg-white">
+
+    <!-- Navbar Fijo -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-md">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 gradient-brand rounded-full flex items-center justify-center text-white">
+                        <i class="fas fa-shield-alt text-xl"></i>
+                    </div>
+                    <span class="font-serif text-2xl font-bold text-brand-blue">Reyes Financial</span>
+                </div>
+                
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
+                    <a href="#servicios" class="hover:text-brand-blue transition-colors">Servicios</a>
+                    <a href="#beneficios" class="hover:text-brand-blue transition-colors">Beneficios</a>
+                    <a href="#roth-ira" class="hover:text-brand-blue transition-colors">Roth IRA</a>
+                    <a href="#testimonios" class="hover:text-brand-blue transition-colors">Testimonios</a>
+                    <a href="#faqs" class="hover:text-brand-blue transition-colors">FAQs</a>
+                    <a href="#contacto" class="hover:text-brand-blue transition-colors">Contacto</a>
+                </div>
+                
+                <!-- CTA Button -->
+                <button onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})" class="gradient-brand text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    Solicita tu Asesoría
+                </button>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
+                <div class="flex flex-col gap-4 text-gray-700 font-medium">
+                    <a href="#servicios" class="hover:text-brand-blue transition-colors">Servicios</a>
+                    <a href="#beneficios" class="hover:text-brand-blue transition-colors">Beneficios</a>
+                    <a href="#roth-ira" class="hover:text-brand-blue transition-colors">Roth IRA</a>
+                    <a href="#testimonios" class="hover:text-brand-blue transition-colors">Testimonios</a>
+                    <a href="#faqs" class="hover:text-brand-blue transition-colors">FAQs</a>
+                    <a href="#contacto" class="hover:text-brand-blue transition-colors">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-6 gradient-brand overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-32 h-32 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-20 w-48 h-48 bg-white rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-12">
+                <h1 class="reveal font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight">
+                    Protege tu Retiro con<br>
+                    <span class="text-brand-cyan">Anualidades Indexadas</span><br>
+                    y <span class="text-brand-cyan">Roth IRA</span>
+                </h1>
+                
+                <p class="reveal text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+                    Crece tu patrimonio con seguridad garantizada. Cero riesgo de pérdidas en el mercado, 
+                    beneficios fiscales y libertad financiera para tu retiro.
+                </p>
+                
+                <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})" class="bg-white text-brand-blue px-8 py-4 rounded-full text-lg font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center gap-3">
+                        Cotiza Ahora
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Floating Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto">
+                <div class="reveal glass-effect p-6 rounded-2xl shadow-xl float-animation">
+                    <div class="text-brand-blue text-4xl mb-3">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-brand-blue mb-2">7-10%</h3>
+                    <p class="text-gray-700">Rendimiento anual promedio</p>
+                </div>
+                
+                <div class="reveal glass-effect p-6 rounded-2xl shadow-xl float-animation" style="animation-delay: 0.2s">
+                    <div class="text-brand-cyan text-4xl mb-3">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-brand-blue mb-2">100%</h3>
+                    <p class="text-gray-700">Protección del capital</p>
+                </div>
+                
+                <div class="reveal glass-effect p-6 rounded-2xl shadow-xl float-animation" style="animation-delay: 0.4s">
+                    <div class="text-brand-blue text-4xl mb-3">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-brand-blue mb-2">$0</h3>
+                    <p class="text-gray-700">Impuestos en retiros Roth IRA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios de Anualidades Indexadas -->
+    <section id="beneficios" class="py-20 px-6 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-brand-cyan text-sm font-bold uppercase tracking-wider">Beneficios Clave</span>
+                <h2 class="font-serif text-4xl md:text-6xl font-bold text-brand-blue mt-4 mb-6">
+                    ¿Por qué Anualidades Indexadas?
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    La combinación perfecta entre crecimiento y seguridad para tu retiro
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Beneficio 1 -->
+                <div class="reveal bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="w-16 h-16 gradient-brand rounded-full flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-blue mb-4">Protección Total del Capital</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Tu inversión está 100% protegida. Nunca perderás dinero debido a caídas del mercado, 
+                        mientras participas en las ganancias cuando el mercado sube.
+                    </p>
+                </div>
+                
+                <!-- Beneficio 2 -->
+                <div class="reveal bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="w-16 h-16 gradient-brand rounded-full flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-blue mb-4">Crecimiento Garantizado</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Obtén rendimientos vinculados a índices como el S&P 500, con tasas de participación 
+                        típicas del 7-10% anual, sin riesgo de pérdida.
+                    </p>
+                </div>
+                
+                <!-- Beneficio 3 -->
+                <div class="reveal bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="w-16 h-16 gradient-brand rounded-full flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-blue mb-4">Ingreso Vitalicio</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Convierte tu anualidad en pagos mensuales garantizados que duran toda tu vida, 
+                        sin importar cuánto tiempo vivas.
+                    </p>
+                </div>
+                
+                <!-- Beneficio 4 -->
+                <div class="reveal bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="w-16 h-16 gradient-brand rounded-full flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-umbrella"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-blue mb-4">Sin Comisiones Anuales</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Las anualidades indexadas no cobran comisiones anuales. La compañía de seguros gana 
+                        mediante el spread de la tasa de participación.
+                    </p>
+                </div>
+                
+                <!-- Beneficio 5 -->
+                <div class="reveal bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="w-16 h-16 gradient-brand rounded-full flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-blue mb-4">Acumulación Diferida de Impuestos</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        No pagas impuestos sobre las ganancias hasta que retires el dinero, permitiendo 
+                        que tu inversión crezca más rápido mediante interés compuesto.
+                    </p>
+                </div>
+                
+                <!-- Beneficio 6 -->
+                <div class="reveal bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="w-16 h-16 gradient-brand rounded-full flex items-center justify-center text-white text-2xl mb-6">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-blue mb-4">Beneficios para Herederos</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Transfiere tu anualidad a beneficiarios sin pasar por probate, con opciones de 
+                        distribución flexibles y beneficios fiscales estratégicos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios Roth IRA -->
+    <section id="roth-ira" class="py-20 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-brand-cyan text-sm font-bold uppercase tracking-wider">Ventajas Fiscales</span>
+                <h2 class="font-serif text-4xl md:text-6xl font-bold text-brand-blue mt-4 mb-6">
+                    Roth IRA: Retiros Libres de Impuestos
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    La herramienta más poderosa para el retiro libre de impuestos
+                </p>
+            </div>
+            
+            <!-- Comparison Table -->
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse shadow-xl rounded-2xl overflow-hidden">
+                    <thead>
+                        <tr class="gradient-brand text-white">
+                            <th class="text-left py-6 px-6 text-lg font-bold">Característica</th>
+                            <th class="text-center py-6 px-6 text-lg font-bold">
+                                <i class="fas fa-star mr-2"></i>Roth IRA
+                            </th>
+                            <th class="text-center py-6 px-6 text-lg font-bold">IRA Tradicional</th>
+                            <th class="text-center py-6 px-6 text-lg font-bold">Cuenta Imponible</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white">
+                        <tr class="border-b border-gray-200">
+                            <td class="py-5 px-6 font-semibold text-gray-800">Impuestos en Retiros</td>
+                            <td class="py-5 px-6 text-center">
+                                <span class="inline-flex items-center gap-2 text-green-600 font-bold">
+                                    <i class="fas fa-check-circle text-xl"></i>
+                                    Libre de Impuestos
+                                </span>
+                            </td>
+                            <td class="py-5 px-6 text-center text-gray-600">Ingreso Ordinario</td>
+                            <td class="py-5 px-6 text-center text-gray-600">Ganancias de Capital</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 bg-gray-50">
+                            <td class="py-5 px-6 font-semibold text-gray-800">Distribuciones Requeridas</td>
+                            <td class="py-5 px-6 text-center">
+                                <span class="inline-flex items-center gap-2 text-green-600 font-bold">
+                                    <i class="fas fa-check-circle text-xl"></i>
+                                    Ninguna
+                                </span>
+                            </td>
+                            <td class="py-5 px-6 text-center text-gray-600">A los 73 años</td>
+                            <td class="py-5 px-6 text-center text-gray-600">Ninguna</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-5 px-6 font-semibold text-gray-800">Tributación del Crecimiento</td>
+                            <td class="py-5 px-6 text-center">
+                                <span class="inline-flex items-center gap-2 text-green-600 font-bold">
+                                    <i class="fas fa-check-circle text-xl"></i>
+                                    Libre de Impuestos
+                                </span>
+                            </td>
+                            <td class="py-5 px-6 text-center text-gray-600">Diferido</td>
+                            <td class="py-5 px-6 text-center text-gray-600">Anual</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="py-5 px-6 font-semibold text-gray-800">Herencia para Beneficiarios</td>
+                            <td class="py-5 px-6 text-center">
+                                <span class="inline-flex items-center gap-2 text-green-600 font-bold">
+                                    <i class="fas fa-check-circle text-xl"></i>
+                                    Libre de Impuestos
+                                </span>
+                            </td>
+                            <td class="py-5 px-6 text-center text-gray-600">Imponible</td>
+                            <td class="py-5 px-6 text-center text-gray-600">Base Ajustada</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- CTA Box -->
+            <div class="mt-16 gradient-brand p-10 rounded-3xl text-center shadow-2xl">
+                <h3 class="font-serif text-4xl font-bold text-white mb-4">Calcula tus Ahorros Fiscales</h3>
+                <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+                    Descubre cuánto podrías ahorrar en impuestos durante 20 años con una conversión a Roth IRA
+                </p>
+                <button class="bg-white text-brand-blue px-10 py-4 rounded-full text-lg font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                    Calculadora Gratuita
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo Funciona -->
+    <section id="servicios" class="py-20 px-6 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-brand-cyan text-sm font-bold uppercase tracking-wider">Proceso Simple</span>
+                <h2 class="font-serif text-4xl md:text-6xl font-bold text-brand-blue mt-4 mb-6">
+                    Cómo Funciona
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Tres pasos sencillos para asegurar tu futuro financiero
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Paso 1 -->
+                <div class="reveal text-center">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-24 h-24 gradient-brand rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-xl">
+                            1
+                        </div>
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-brand-cyan rounded-full flex items-center justify-center text-white">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-blue mb-4">Consulta Inicial</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Agenda una llamada gratuita de 30 minutos. Analizamos tu situación financiera actual, 
+                        objetivos de retiro y tolerancia al riesgo.
+                    </p>
+                </div>
+                
+                <!-- Paso 2 -->
+                <div class="reveal text-center">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-24 h-24 gradient-brand rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-xl">
+                            2
+                        </div>
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-brand-cyan rounded-full flex items-center justify-center text-white">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-blue mb-4">Plan Personalizado</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Creamos una estrategia personalizada combinando Anualidades Indexadas y Roth IRA 
+                        según tus necesidades específicas.
+                    </p>
+                </div>
+                
+                <!-- Paso 3 -->
+                <div class="reveal text-center">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-24 h-24 gradient-brand rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-xl">
+                            3
+                        </div>
+                        <div class="absolute -top-2 -right-2 w-8 h-8 bg-brand-cyan rounded-full flex items-center justify-center text-white">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-blue mb-4">Implementación</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Nos encargamos de todo el papeleo y configuración. Te guiamos paso a paso hasta 
+                        que tu plan esté completamente activo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonios" class="py-20 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-brand-cyan text-sm font-bold uppercase tracking-wider">Lo Que Dicen Nuestros Clientes</span>
+                <h2 class="font-serif text-4xl md:text-6xl font-bold text-brand-blue mt-4 mb-6">
+                    Testimonios Reales
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonio 1 -->
+                <div class="reveal bg-gray-50 p-8 rounded-2xl shadow-lg">
+                    <div class="text-brand-cyan text-4xl mb-4">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "Después de 10 años con mi anualidad indexada, mi inversión creció un 78% sin ningún riesgo. 
+                        Reyes Financial me ayudó a entender todo el proceso de forma clara."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 gradient-brand rounded-full flex items-center justify-center text-white font-bold">
+                            MC
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-brand-blue">María Contreras</h4>
+                            <p class="text-sm text-gray-500">Maestra jubilada, 67 años</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonio 2 -->
+                <div class="reveal bg-gray-50 p-8 rounded-2xl shadow-lg">
+                    <div class="text-brand-cyan text-4xl mb-4">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "La combinación de Roth IRA y anualidad indexada me permitió retirarme 5 años antes de lo planeado. 
+                        Ahora disfruto de ingresos libres de impuestos cada mes."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 gradient-brand rounded-full flex items-center justify-center text-white font-bold">
+                            JR
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-brand-blue">Jorge Ramírez</h4>
+                            <p class="text-sm text-gray-500">Ingeniero, 58 años</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonio 3 -->
+                <div class="reveal bg-gray-50 p-8 rounded-2xl shadow-lg">
+                    <div class="text-brand-cyan text-4xl mb-4">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "Durante la crisis de 2020, mi cuenta de inversiones cayó 40%. Mi anualidad indexada no perdió ni un centavo. 
+                        Esto me dio una tranquilidad invaluable."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 gradient-brand rounded-full flex items-center justify-center text-white font-bold">
+                            AL
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-brand-blue">Ana López</h4>
+                            <p class="text-sm text-gray-500">Empresaria, 62 años</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <section id="faqs" class="py-20 px-6 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-brand-cyan text-sm font-bold uppercase tracking-wider">Preguntas Frecuentes</span>
+                <h2 class="font-serif text-4xl md:text-6xl font-bold text-brand-blue mt-4 mb-6">
+                    Resolvemos tus Dudas
+                </h2>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="faq-question w-full px-8 py-6 flex items-center justify-between text-left hover:bg-gray-50 transition-colors">
+                        <span class="text-xl font-bold text-brand-blue pr-4">
+                            ¿Qué pasa si necesito mi dinero antes del retiro?
+                        </span>
+                        <i class="fas fa-chevron-down text-brand-cyan text-xl transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-8 pb-6">
+                        <p class="text-gray-700 leading-relaxed">
+                            La mayoría de los contratos permiten retiros del 10% anualmente sin penalización. 
+                            Retiros completos durante el período de rescate tienen comisiones (típicamente 5-10% que disminuyen anualmente). 
+                            Las contribuciones de Roth IRA pueden retirarse en cualquier momento libre de impuestos.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="faq-question w-full px-8 py-6 flex items-center justify-between text-left hover:bg-gray-50 transition-colors">
+                        <span class="text-xl font-bold text-brand-blue pr-4">
+                            ¿Cómo funciona la protección del capital?
+                        </span>
+                        <i class="fas fa-chevron-down text-brand-cyan text-xl transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-8 pb-6">
+                        <p class="text-gray-700 leading-relaxed">
+                            Tu capital está respaldado por compañías de seguros calificadas A+ o superior. 
+                            Si el mercado cae 30%, tu saldo permanece igual (piso del 0%). No participas en pérdidas, 
+                            solo en ganancias. Esta es la diferencia clave con la inversión directa en el mercado.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="faq-question w-full px-8 py-6 flex items-center justify-between text-left hover:bg-gray-50 transition-colors">
+                        <span class="text-xl font-bold text-brand-blue pr-4">
+                            ¿Cuál es el monto mínimo para empezar?
+                        </span>
+                        <i class="fas fa-chevron-down text-brand-cyan text-xl transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-8 pb-6">
+                        <p class="text-gray-700 leading-relaxed">
+                            Para anualidades indexadas, el mínimo típico es $10,000-$25,000 dependiendo de la compañía. 
+                            Para Roth IRA, puedes comenzar con cualquier cantidad (límite anual de $7,000 o $8,000 si tienes 50+ años). 
+                            Ofrecemos opciones flexibles para diferentes presupuestos.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="faq-question w-full px-8 py-6 flex items-center justify-between text-left hover:bg-gray-50 transition-colors">
+                        <span class="text-xl font-bold text-brand-blue pr-4">
+                            ¿Cómo se comparan con un 401(k)?
+                        </span>
+                        <i class="fas fa-chevron-down text-brand-cyan text-xl transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-8 pb-6">
+                        <p class="text-gray-700 leading-relaxed">
+                            El 401(k) ofrece igualación del empleador y límites de contribución más altos ($23,000 vs $7,000 para Roth IRA). 
+                            Las anualidades indexadas ofrecen protección del capital y opciones de ingreso garantizado. 
+                            Mejor estrategia: maximiza la igualación del 401(k), luego diversifica con Roth IRA y anualidades.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="faq-question w-full px-8 py-6 flex items-center justify-between text-left hover:bg-gray-50 transition-colors">
+                        <span class="text-xl font-bold text-brand-blue pr-4">
+                            ¿Cuáles son las comisiones?
+                        </span>
+                        <i class="fas fa-chevron-down text-brand-cyan text-xl transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-8 pb-6">
+                        <p class="text-gray-700 leading-relaxed">
+                            Las anualidades indexadas NO tienen comisiones anuales. La compañía de seguros gana mediante el spread de la tasa de participación. 
+                            Los riders de ingreso opcionales cuestan 0.5-1.5% anualmente. Las comisiones del custodio de Roth IRA son típicamente $25-50/año. 
+                            Somos asesores de honorarios únicamente (sin comisiones).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto -->
+    <section id="contacto" class="py-20 px-6 gradient-brand">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-serif text-4xl md:text-6xl font-bold text-white mb-6">
+                    ¿Listo para Asegurar tu Retiro?
+                </h2>
+                <p class="text-xl text-white/90 max-w-2xl mx-auto">
+                    Agenda una consulta gratuita con nuestros asesores licenciados. Sin obligación, sin presión.
+                </p>
+            </div>
+            
+            <div class="glass-effect p-8 md:p-12 rounded-3xl shadow-2xl">
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-brand-blue font-semibold mb-2">Nombre</label>
+                            <input type="text" placeholder="Tu nombre" class="w-full px-6 py-4 rounded-full border-2 border-gray-200 focus:border-brand-cyan focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-brand-blue font-semibold mb-2">Apellido</label>
+                            <input type="text" placeholder="Tu apellido" class="w-full px-6 py-4 rounded-full border-2 border-gray-200 focus:border-brand-cyan focus:outline-none transition-colors">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-brand-blue font-semibold mb-2">Email</label>
+                        <input type="email" placeholder="tu@email.com" class="w-full px-6 py-4 rounded-full border-2 border-gray-200 focus:border-brand-cyan focus:outline-none transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-brand-blue font-semibold mb-2">Teléfono</label>
+                        <input type="tel" placeholder="(555) 123-4567" class="w-full px-6 py-4 rounded-full border-2 border-gray-200 focus:border-brand-cyan focus:outline-none transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-brand-blue font-semibold mb-2">Ahorros Actuales para el Retiro</label>
+                        <select class="w-full px-6 py-4 rounded-full border-2 border-gray-200 focus:border-brand-cyan focus:outline-none transition-colors bg-white">
+                            <option>Menos de $50,000</option>
+                            <option>$50,000 - $100,000</option>
+                            <option>$100,000 - $250,000</option>
+                            <option>$250,000 - $500,000</option>
+                            <option>$500,000+</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-brand-blue font-semibold mb-2">Comentarios</label>
+                        <textarea rows="4" placeholder="Cuéntanos sobre tus objetivos de retiro..." class="w-full px-6 py-4 rounded-3xl border-2 border-gray-200 focus:border-brand-cyan focus:outline-none transition-colors resize-none"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full gradient-brand text-white px-10 py-5 rounded-full text-lg font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3">
+                        Quiero mi Plan Personalizado
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                    
+                    <p class="text-center text-sm text-gray-600">
+                        Al enviar, aceptas nuestra Política de Privacidad. Nunca compartimos tu información.
+                    </p>
+                </form>
+                
+                <div class="mt-10 pt-8 border-t border-gray-200 flex flex-col md:flex-row items-center justify-center gap-8 text-gray-700">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-phone text-brand-cyan text-xl"></i>
+                        <span class="font-semibold">(555) 123-4567</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-brand-cyan text-xl"></i>
+                        <span class="font-semibold">info@reyesfinancial.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-blue text-white py-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Logo y Descripción -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-brand-cyan rounded-full flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-brand-blue text-lg"></i>
+                        </div>
+                        <span class="font-serif text-2xl font-bold">Reyes Financial Agency</span>
+                    </div>
+                    <p class="text-white/80 leading-relaxed max-w-md">
+                        Más de 15 años ayudando a familias a proteger su futuro financiero con Anualidades Indexadas 
+                        y estrategias de Roth IRA personalizadas.
+                    </p>
+                </div>
+                
+                <!-- Enlaces Rápidos -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2 text-white/80">
+                        <li><a href="#servicios" class="hover:text-brand-cyan transition-colors">Servicios</a></li>
+                        <li><a href="#beneficios" class="hover:text-brand-cyan transition-colors">Beneficios</a></li>
+                        <li><a href="#roth-ira" class="hover:text-brand-cyan transition-colors">Roth IRA</a></li>
+                        <li><a href="#testimonios" class="hover:text-brand-cyan transition-colors">Testimonios</a></li>
+                        <li><a href="#faqs" class="hover:text-brand-cyan transition-colors">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Redes Sociales -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Síguenos</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-cyan transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-cyan transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-cyan transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-cyan transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Disclaimer Legal -->
+            <div class="pt-8 border-t border-white/20">
+                <p class="text-center text-sm text-white/60 mb-4">
+                    © 2026 Reyes Financial Agency. Todos los derechos reservados.
+                </p>
+                <p class="text-center text-xs text-white/50 max-w-4xl mx-auto">
+                    Valores ofrecidos a través de representantes registrados. Servicios de asesoría de inversiones ofrecidos 
+                    a través de asesores de inversión registrados en la SEC. Miembro FINRA/SIPC. Las anualidades son productos 
+                    de seguros, no son FDIC asegurados y pueden perder valor.
+                </p>
+                <div class="flex flex-wrap justify-center gap-6 mt-6 text-xs text-white/60">
+                    <a href="#" class="hover:text-white transition-colors">Política de Privacidad</a>
+                    <a href="#" class="hover:text-white transition-colors">Términos de Servicio</a>
+                    <a href="#" class="hover:text-white transition-colors">Divulgaciones</a>
+                    <a href="#" class="hover:text-white transition-colors">Formulario CRS</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
+        // Scroll Reveal
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
+                    if (otherAnswer !== answer) {
+                        otherAnswer.classList.add('hidden');
+                        otherAnswer.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                    }
+                });
+                
+                // Toggle current FAQ
+                answer.classList.toggle('hidden');
+                icon.style.transform = answer.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+            });
+        });
+        
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="/public/dhws-data-injector.js"></script>
+</body>
+</html>
